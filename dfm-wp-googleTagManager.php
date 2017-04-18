@@ -421,9 +421,13 @@ function get_data() {
     function get_article_author() {
         if ( is_single() ) {
             global $post;
-            if ( function_exists( 'get_coauthors' ) && count( get_coauthors( get_the_id() ) ) > 1 ) {
+            if ( function_exists( 'get_coauthors' ) && count( get_coauthors( get_the_id() ) ) >= 1 ) {
                 $coauthors = get_coauthors();
-                return $coauthors[0]->display_name;
+                $not_guest = false;
+                foreach ($coauthors as $coauthor) {
+                    $not_guest = ($coauthor->type == 'wpuser') ? true : false;
+                }
+                return ($not_guest == false) ? $coauthors[0]->display_name : get_the_author_meta( 'display_name' );
             } else {
                 return get_the_author_meta( 'display_name' );
             }
