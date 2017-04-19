@@ -610,7 +610,7 @@ function inject_dfm_api(){
 		      "Digital Publisher":dataLayer_digitalpublisher,
 		      "Platform":dataLayer_pubplatform,
 		      "Publisher State":dataLayer_publisherstate,
-              "Section":datadataLayer_sectionName,
+              "Section":dataLayer_sectionName,
               "Taxonomy1":dataLayer_taxonomy1,
               "Taxonomy2":dataLayer_taxonomy2,
               "Byline":dataLayer_byline,
