@@ -343,7 +343,8 @@ function get_data() {
 		if ( is_search() ) {
 		$section_name = "Search";
 		}elseif( is_single() ){
-			$section_name = get_taxonomy_post()[0];
+            $section_names = get_taxonomy_post();
+			$section_name = $section_names[0];
 		}elseif( is_home() ){
 			$section_name = "Home";
 		}elseif( is_category() ){
