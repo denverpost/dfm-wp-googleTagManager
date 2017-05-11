@@ -421,16 +421,17 @@ function get_data() {
 
     function get_article_author() {
         if ( is_single() ) {
-            global $post;
+            $post_id = get_queried_object_id();
+            $post_author_id = get_post_field( 'post_author', $post_id );
             if ( function_exists( 'get_coauthors' ) && count( get_coauthors( get_the_id() ) ) >= 1 ) {
                 $coauthors = get_coauthors();
                 $not_guest = false;
                 foreach ($coauthors as $coauthor) {
                     $not_guest = ($coauthor->type == 'wpuser') ? true : false;
                 }
-                return ($not_guest == false) ? $coauthors[0]->display_name : get_the_author_meta( 'display_name' );
+                return ($not_guest == false) ? $coauthors[0]->display_name : get_the_author_meta( 'display_name', $post_author_id );
             } else {
-                return get_the_author_meta( 'display_name' );
+                return get_the_author_meta( 'display_name', $post_author_id );
             }
         }
     }
