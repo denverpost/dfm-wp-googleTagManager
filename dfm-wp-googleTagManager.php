@@ -459,7 +459,7 @@ function get_data() {
 }
 	function enqueue_dfm_core_level_1() {
         wp_enqueue_script( 'jquery' );
-        wp_enqueue_script( 'dfm-core-level-1.js', 'http://local.digitalfirstmedia.com/common/dfm/assets/js/dfm-core-level1.min.js', array(), '1.0', false );
+        wp_enqueue_script( 'dfm-core-level-1.js', '//local.digitalfirstmedia.com/common/dfm/assets/js/dfm-core-level1.min.js', array(), '1.0', false );
 	}
 
 add_action( 'wp_enqueue_scripts', 'enqueue_dfm_core_level_1' );
@@ -473,7 +473,7 @@ function inject_dfm_api(){
 
     $dfm_data_array = get_data();
     $dfm_api_html = '
-    <script type="text/javascript" src="http://local.denverpost.com/common/dfm/dfm-core.js"></script>
+    <script type="text/javascript" src="//local.denverpost.com/common/dfm/dfm-core.js"></script>
     <!-- DFM API -->
     <script type="text/javascript">
         dfm.api("data","siteId",            "");
@@ -624,7 +624,7 @@ function inject_dfm_api(){
 		</script>
 
 		<!-- GA global -->
-		<script type="text/javascript" src="http://local.medianewsgroup.com/common/dfm/ga-datalayer.js"></script>';
+		<script type="text/javascript" src="//local.medianewsgroup.com/common/dfm/ga-datalayer.js"></script>';
 
     //Condition to check if the data_layer value is activated, then print it
     if ( $dfm_data_array['data_layer'] ) {
